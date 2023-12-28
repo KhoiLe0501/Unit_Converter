@@ -7,17 +7,9 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Main {
-	// write a unit conversion program that convert units based on the index
-	// Be able to do area and volume as well using the same key values and unit
-	// Memorize the first 20 unique conversion
-	// To hasten the code from very large unit to small unit, have separate array for them i.e mega to cubic inches
-	// BGW heat exchanger sizing
-	// Distillation column with theis diagram and drawn. (maybe do this in Python)
-	// Flash drum sizing
-	// Clausius-Clapeyron equation
 	
 	static List<Unit> unit_list = new ArrayList<>();
-	
+
 	public static void main(String[] args) throws FileNotFoundException {
 		load_file(new File("Length_Units"), "length");
 		load_file(new File("Mass_Units"), "mass");
