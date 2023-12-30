@@ -7,10 +7,6 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Main {
-	// write a unit conversion program that convert units based on the index
-	// Be able to do area and volume as well using the same key values and unit
-	// Flash drum sizing
-	
 	static List<Unit> unit_list = new ArrayList<>();
 	static DecimalFormat format = new DecimalFormat("0.000");
 	
