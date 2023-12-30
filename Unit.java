@@ -17,7 +17,4 @@ public class Unit {
 	public String toString() {
 		return "" + this.factor;}
 	
-
-// void convert() {}
-
 }
