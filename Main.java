@@ -7,8 +7,12 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Main {
+	// write a unit conversion program that convert units based on the index
+	// Be able to do area and volume as well using the same key values and unit
+	// Flash drum sizing
+	
 	static List<Unit> unit_list = new ArrayList<>();
-	static DecimalFormat format = new DecimalFormat("0.000");
+	static DecimalFormat format = new DecimalFormat("0.000E0");
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		load_file(new File("Length_Units"), "length");
@@ -18,6 +22,7 @@ public class Main {
 		load_file(new File("Volume_Units"), "volume");
 		load_file(new File("Force_Units"), "force");
 		load_file(new File("Energy_Units"), "energy");
+		load_file(new File("Power_Units"), "power");
 		
 		Scanner in = new Scanner(System.in);
 		String input;
@@ -52,9 +57,13 @@ public class Main {
 	        }
 	        
             Double converted = convert(base, from, to);
+            String converted_string = converted + "";
             
             if (converted != null) {
-                String converted_string = format.format(converted);
+            	
+                if (converted > 10000 || converted < 1e-3) {
+                	converted_string = format.format(converted);
+                }
             	System.out.println("There are [" + converted_string + " " + to + "] in " + base + " " + from + "\n");
             }
 	    } while (!input.equals("xxx"));
@@ -107,6 +116,30 @@ public class Main {
 			return base * upper_factor * lower_factor;
 		}
 		
+		// Anyting pass this line should already be broken down from a more complex input unit dimension
+		
+		if ((from == null || to == null) && from_name.contains("^") && to_name.contains("^")) {
+			int from_hat_index = from_name.indexOf("^");
+			int to_hat_index = to_name.indexOf("^");
+			int from_power = Integer.parseInt(from_name.substring(from_hat_index+1));
+			int to_power = Integer.parseInt(to_name.substring(to_hat_index+1));
+			
+			if (from_power != to_power) {
+				System.out.println("ERROR! Inconsistent unit dimensions");
+				System.out.println("From -> " + from_name);
+				System.out.println("To -> " + to_name + "\n");
+				return null;
+			}
+			
+			from_name = from_name.substring(0, from_hat_index);
+			to_name = to_name.substring(0, to_hat_index);
+			return base * Math.pow(convert(1, from_name, to_name), from_power); 
+		}
+		
+		if ((from == null || to == null) && (from_name.equals("W") || to_name.equals("W"))) {
+		    return (from_name.equals("W")) ? convert(base, "J/s", to_name) : convert(base, from_name, "J/s");
+		}
+		
 		if (from == null || to == null) {
 			System.out.println("ERROR! Unknown unit in use");
 			System.out.println("From -> " + from_name);
@@ -115,7 +148,7 @@ public class Main {
 		}
 		
 		if (!from.getType().equals(to.getType())) {
-			System.out.println("Cannot convert as dimension of units are not consistent.");
+			System.out.println("ERROR! Inconsistent unit dimensions");
 			System.out.println("From -> " + from.getType() + " [" + from.getName() + "]");
 			System.out.println("To -> " + to.getType() + " [" + to.getName() + "]\n");
 			return null;
