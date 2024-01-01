@@ -2,11 +2,11 @@ This Java program is a flexible unit conversion tool designed to convert various
 
 **Usage Instructions**
 
-Compile and Run:
-
 Compile the program using a Java compiler.
+
 Run the compiled program.
-Input Format:
+
+**Input Format:**
 
 Enter the amount and unit for conversion (e.g., "5 m").
 Optionally, use the "to" keyword to specify the target unit (e.g., "5 m to cm").
