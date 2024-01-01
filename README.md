@@ -60,7 +60,7 @@ Displays the converted amount and unit.
 
 **Advanced Features**
 
-Supports basic arithmetic operations for complex unit conversions (e.g., cm^3 to m^2).
+Supports basic arithmetic operations for complex unit conversions (e.g., cm^3 to m^3).
 Recognizes metric prefixes for both source and target units.
 
 **Note**
