@@ -10,10 +10,10 @@ Run the compiled program.
 
 Enter the amount and unit for conversion (e.g., "5 m").
 Optionally, use the "to" keyword to specify the target unit (e.g., "5 m to cm").
-Enter "xxx" in the 2nd or 3rd prompt to terminate the program.
+Enter "xxx" to terminate the program.
 
-Example Usage
-plaintext
+**Example Usage**
+
 Please enter the amount and unit (in abbreviation) of your conversion (5 m) or (5 m to cm):
 5 m to cm
 There are [500.000 cm] in 5.0 m
