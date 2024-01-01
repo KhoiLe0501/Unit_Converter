@@ -15,7 +15,9 @@ Enter "xxx" to terminate the program.
 **Example Usage**
 
 Please enter the amount and unit (in abbreviation) of your conversion (5 m) or (5 m to cm):
+
 5 m to cm
+
 There are [500.000 cm] in 5.0 m
 
 **File Structure**
