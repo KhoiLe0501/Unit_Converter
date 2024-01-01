@@ -1,59 +1,67 @@
-**Overview**
+This Java program is a flexible unit conversion tool designed to convert various physical quantities, including length, mass, time, pressure, volume, force, energy, and power. The program is equipped to handle complex unit conversions, support arithmetic operations, and recognize metric prefixes. The README provides information on how to use the program, its file structure, and advanced features.
 
-This Java program is a unit conversion tool that allows users to convert values between different units of measurement. The program supports various unit types, including length, mass, time, pressure, volume, force, and energy. Users can enter conversion requests in the format "amount unit1 to unit2" or simply "amount unit1" for unit conversion without specifying the target unit.
+**Usage Instructions**
 
-**Features**
+Compile and Run:
 
-Unit Definitions:
-The program reads unit definitions from external files for different unit types. These files, such as "Length_Units," "Mass_Units," etc., contain information about unit names, types, and conversion factors.
-
-Conversion Logic:
-The conversion logic handles different scenarios, including basic unit conversions, area and volume calculations, and compound conversions involving multiplication and division of units.
-
-Input and Termination:
-Users can interactively enter conversion requests in the console. The program continues to prompt the user until the input "xxx" is provided, at which point the program terminates.
-
-**Usage**
-
+Compile the program using a Java compiler.
+Run the compiled program.
 Input Format:
 
-To convert between units: Enter the amount, source unit, and target unit in the format "amount unit1 to unit2" (e.g., "5 m to cm").
-For basic unit conversion: Enter the amount and source unit without specifying the target unit (e.g., "5 m").
-Termination:
+Enter the amount and unit for conversion (e.g., "5 m").
+Optionally, use the "to" keyword to specify the target unit (e.g., "5 m to cm").
+Enter "xxx" in the 2nd or 3rd prompt to terminate the program.
 
-To terminate the program, enter "xxx" during the input prompts.
+Example Usage
+plaintext
+Please enter the amount and unit (in abbreviation) of your conversion (5 m) or (5 m to cm):
+5 m to cm
+There are [500.000 cm] in 5.0 m
 
-**Files**
+**File Structure**
 
-The program consists of the following files:
+**Main.java:**
 
-Main.java:
+The main class containing the program logic.
+Loads unit conversion factors from files.
 
-Contains the main program logic.
-Handles user input, unit conversion, and file loading.
-Unit.java:
+**Unit.java:**
 
-Defines the Unit class, representing a unit with a name, type, and conversion factor.
+Represents a unit with a name, type, and conversion factor.
 
-**External Files**
+**Length_Units, Mass_Units, Time_Units, Pressure_Units, Volume_Units, Force_Units, Energy_Units, Power_Units:**
 
-The program loads unit definitions from external files (e.g., "Length_Units," "Mass_Units," etc.). Each file follows a specific format, providing information about different units.
+Files containing unit conversion factors for different quantities.
 
-**Error Handling**
+**Metric:**
 
-The program handles errors gracefully, such as invalid numeric input and unknown units.
-Future Improvements
-The program can be extended to support additional unit types and conversions.
-Improved error messages and user prompts can enhance the user experience.
-**Contributors**
-[Your Name]
-Version History
-v1.0: Initial release
+File containing metric prefixes and their conversion factors.
+Program Flow
 
-**License**
+**Load Files:**
 
-This program is released under the MIT License. Feel free to modify and distribute it as needed.
+Reads unit conversion factors from separate files for different quantities.
 
-**Acknowledgments**
+**User Interaction:**
 
-Special thanks to contributors and resources that inspired or supported the development of this unit conversion program.
+Takes user input for the amount and units.
+Parses input to identify the source and target units.
+
+**Conversion:**
+
+Utilizes conversion factors to perform unit conversion.
+
+**Display Result:**
+
+Displays the converted amount and unit.
+
+**Advanced Features**
+
+Supports basic arithmetic operations for complex unit conversions (e.g., cm^3 to m^2).
+Recognizes metric prefixes for both source and target units.
+
+**Note**
+
+Explore different unit conversions and provide feedback for further improvements!
+This program can be extended for additional unit types by creating new files with conversion factors.
+Feel free to experiment with various conversions and enjoy the flexibility of this unit conversion tool!
